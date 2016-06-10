@@ -88,9 +88,8 @@ class Pages
         $shopID = wc_get_page_id('shop');
         $shopOnFront = ('page' === get_option('show_on_front')) && in_array(
                         get_option('page_on_front')
-                        , $polylang->model->get_translations(
-                                'post', $shopID
-        ));
+                        , PLL()->model->post->get_translations($shopID)
+                        );
 
         $vars = array('pagename', 'page', 'name');
         foreach ($vars as $var) {
